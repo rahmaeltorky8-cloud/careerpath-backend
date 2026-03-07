@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'users',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,18 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'compasscareer219@gmail.com'
 EMAIL_HOST_PASSWORD = 'jics ffhh ceyf wrbl'
 DEFAULT_FROM_EMAIL = 'CareerCompass <compasscareer219@gmail.com>'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '477738780130-e0uc0f0pdciqbq5cobj427ob50an5197.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+    'https://www.googleapis.com/auth/userinfo.email',
+    'https://www.googleapis.com/auth/userinfo.profile',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_REDIRECT_URL = '/api/auth/google/callback/'
